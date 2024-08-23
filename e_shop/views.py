@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 
-from e_shop.forms import ProductForm
+from e_shop.forms import CategoryForm, ProductForm
 from e_shop.models import Product
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -136,3 +136,16 @@ def update_product(request, id):
     context = {}
     context['form'] = form
     return render(request, 'e_shop/update.html', context=context)
+
+def addCategory(request):
+    form = CategoryForm()
+    if request.method == 'POST':
+        category = CategoryForm(request.POST)
+        if category.is_valid():
+            category.save()
+            return redirect(home)
+        else:
+            return render(request, 'e_shop/addcategory.html', {'error': 'Invalid data'})
+    context = {}
+    context['form'] = form
+    return render(request, 'e_shop/addcategory.html', context=context)

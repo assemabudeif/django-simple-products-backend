@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, addProduct, login, signup, update_product, delete_product, logout, LoginView, SignUpView
+from .views import home, addProduct, login, signup, update_product, delete_product, logout, LoginView, SignUpView, addCategory
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('home', home, name='home'),
     path('addproduct', addProduct, name='addproduct'),
+    path('category/add', addCategory, name='addCategory'),
     # path('login', login, name='login'),
     path('login', view=LoginView.as_view(), name='login'),
     path('signup', view=SignUpView.as_view(), name='signup'),

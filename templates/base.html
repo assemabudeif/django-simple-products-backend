@@ -8,15 +8,15 @@
 <body>
 
 <ul>
+  {% if request.session.username %}
   <li><a href="{%url 'home'%}">Home</a></li>
   <li><a href="{%url 'addproduct'%}">Add Product</a></li>
+  <li><a href="{%url 'addCategory'%}">Add Category</a></li>
+  <li><a href="{%url 'logout'%}">Logout</a></li>
+  {% endif %}
   {% if not request.session.username %}
   <li><a href="{%url 'login'%}">Login</a></li>
   <li><a href="{%url 'signup'%}">Sign Up</a></li>
-  {% endif %}
-
-  {% if request.session.username %}
-  <li><a href="{%url 'logout'%}">Logout</a></li>
   {% endif %}
 </ul>
 

@@ -8,6 +8,7 @@
       <th>Name</th>
       <th>Price</th>
       <th>Describtion</th>
+      <th>Category</th>
       <th>Image</th>
       <th>Update</th>
       <th>Delete</th>
@@ -18,6 +19,7 @@
       <td>{{ product.name }}</td>
       <td>{{ product.price }}</td>
       <td>{{ product.description }}</td>
+      <td>{{ product.category }}</td>
       <td><img src="http://127.0.0.1:8000/e_shop{{product.image.url}}" alt="image" style="width:auto; height:100px"></td>
       <td><a href="{% url 'update' product.id %}">Update</a></td>
       <td><a href="{% url 'delete' product.id %}">Delete</a></td>
