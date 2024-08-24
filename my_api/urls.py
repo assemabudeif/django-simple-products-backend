@@ -14,12 +14,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path, include
 
+from rest_framework.routers import DefaultRouter
+
+from my_api.views import CategoryViewSet, ProductViewSet, UserRegistrationView, UserLoginView
+
+router = DefaultRouter()
+router.register('products', ProductViewSet, basename='products')
+
+# The API URLs are now determined automatically by the router.
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('e_shop/', include('e_shop.urls')),
-    path('api/', include('my_api.urls')),
-    path('api-auth/', include('rest_framework.urls'))
+    path('', include(router.urls)),
+    path('categories', CategoryViewSet.as_view(), name='categories'),
+    path('register', UserRegistrationView.as_view(), name='register'),
+    path('login', UserLoginView.as_view(), name='login'),
 ]
