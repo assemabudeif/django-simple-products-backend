@@ -18,7 +18,7 @@ from django.urls import path, include
 
 from rest_framework.routers import DefaultRouter
 
-from my_api.views import CategoryViewSet, ProductViewSet, UserRegistrationView, UserLoginView
+from my_api.views import CategoryViewSet, Home, ProductViewSet, UserRegistrationView, UserLoginView
 
 router = DefaultRouter()
 router.register('products', ProductViewSet, basename='products')
@@ -29,4 +29,6 @@ urlpatterns = [
     path('categories', CategoryViewSet.as_view(), name='categories'),
     path('register', UserRegistrationView.as_view(), name='register'),
     path('login', UserLoginView.as_view(), name='login'),
+    path('home', Home.as_view()),
+
 ]
