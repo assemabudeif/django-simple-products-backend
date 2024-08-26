@@ -15,8 +15,8 @@
   <li><a href="{%url 'logout'%}">Logout</a></li>
   {% endif %}
   {% if not request.session.username %}
-  <li><a href="{%url 'login'%}">Login</a></li>
-  <li><a href="{%url 'signup'%}">Sign Up</a></li>
+  <li><a href="{%url 'e_login'%}">Login</a></li>
+  <li><a href="{%url 'e_signup'%}">Sign Up</a></li>
   {% endif %}
 </ul>
 

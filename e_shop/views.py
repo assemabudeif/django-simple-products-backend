@@ -18,7 +18,7 @@ def home(request):
         print(context)
         return render(request, 'e_shop/home.html', context=context)
     else:
-         return redirect('login')
+         return redirect('e_login')
 
 def login(request):
     if request.method == 'POST':
@@ -45,7 +45,7 @@ def signup(request):
 
         user = Users(username=username, password=password)
         user.save()
-        return redirect(login)
+        return redirect('e_login')
 
     return render(request, 'e_shop/signup.html')
 
